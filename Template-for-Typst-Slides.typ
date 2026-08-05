@@ -51,11 +51,19 @@
       (
         (first_author("Nicolas Farabegoli"), "nicolas.farabegoli@unibo.it"),
         ("Foo Bar", "foo@bar.com"),
-      )
+      ),
+      logo: "images/disi.svg",
+      width: 35%,
     ),
     date: datetime.today().display("[day] [month repr:long] [year]"),
     institution: [University of Bologna],
-    logo: align(right)[#image("images/disi.svg", width: 55%)],
+    logo: context {
+     if utils.slide-counter.get().first() > 1 [
+        #align(right)[#image("images/disi.svg", height: 1cm)]
+      ] else [
+        #none
+      ]
+    },
   ),
 )
 
